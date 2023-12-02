@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
+<title id="pagetitle"></title>
 
 <head>
     <style>
@@ -16,64 +17,209 @@
             src: url(Fonts/Aquire.otf);
         }
 
-        @keyframes openinganim {
-            from {left: -100%;}
-            to {left: 0%;}
+        @keyframes seperatelower {
+            from {height: 50%; top: 50%;}
+            to {height: 0%; top: 100%;}
+        }
+        @keyframes seperateupper {
+            from {height: 50%; top: 0%;}
+            to {height: 0%; top: 0%;}
+        }
+
+        @keyframes fadeInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight1 {
+            0% {
+                opacity: 0;
+                transform: translateX(600px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight2 {
+            0% {
+                opacity: 0;
+                transform: translateX(450px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes remove {
+            0% {
+                visibility: visible;
+            }
+            99% {
+                visibility: visible;
+            }
+            100% {
+                visibility: hidden;
+            }
         }
 
         .mainheader {
-            position: relative;
+            position: absolute;
             color: white;
-            left:5%;
-            bottom: 0;
-            z-index: 2;
+            left:37%;
+            bottom: 60%;
+            
 
             letter-spacing: .5px;
-            width: 0%;
+            width: 75%;
             height: 0%;
-            font-size: 60;
+            opacity: 0;
+            font-size: 500%;
             font-family: Aquire;
+            animation-delay: .9s;
+            animation-fill-mode: forwards;
+            animation-duration: 1s;
+            animation-name: fadeInRight1;
+        }
+        .secondaryheader {
+            position: absolute;
+            color: white;
+            left:37%;
+            bottom: 50%;
+            
+
+            letter-spacing: .5px;
+            width: 75%;
+            height: 0%;
+            opacity: 0;
+            font-size: 175%;
+            font-family: Aquire;
+            animation-delay: 1.2s;
+            animation-fill-mode: forwards;
+            animation-duration: .8s;
+            animation-name: fadeInRight2;
         }
 
         .maininfoframe {
-            animation-duration: 2s;
-            animation-delay: 0s;
-            animation-name: openinganim;
             position: absolute;
             background-color: rgb(42,0,48);
             width: 100%;
             height: 60%;
             left: 0%;
             top:10%;
-            z-index: 1;
+
+            /*animation: openinganim 2s ease-in-out infinite;*/
         }
         body {
             background-color: rgb(28,0,33);
             z-index: 0;
         }
+
+        .profilepicture {
+            position: absolute;
+            border-radius: 50%;
+            width: 20%;
+            height: 70%;
+            left: 10%;
+            top: 15%;
+            animation-duration: .8s;
+            animation-delay: .6s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+            animation-name: fadeInLeft;
+        }
+
+        .topbar {
+            position:absolute;
+            width: 100%;
+            height: 10%;
+            top: 0;
+            left: 0;
+            background-color: transparent;
+        }
+        .placeholder_hidden {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            opacity: 0;
+            animation-duration: 0.4;
+            animation-delay: 0.3;
+            animation-fill-mode: forwards;
+            animation-name: remove;
+        }
+        .seperator1 {
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            top: 0%;
+            background-color: rgb(28,0,33);
+            animation-duration: 0.4s;
+            animation-timing-function: ease-in-out;
+            animation-delay: 0.3s;
+            animation-fill-mode: forwards;
+            animation-name: seperateupper;
+        }.seperator2 {
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            top: 50%;
+            background-color: rgb(28,0,33);
+            animation-duration: 0.4s;
+            animation-timing-function: ease-in-out;
+            animation-delay: 0.3s;
+            animation-fill-mode: forwards;
+            animation-name: seperatelower
+        }
+
     </style>
 </head>
 <body>
     <script>
         function updateURL(name) {
-            var newUrlPath = "pages/" + name;
+            var newUrlPath = name;
+            var newTitle = "Kalib Story: " + name.toUpperCase();
             history.pushState(null, "", newUrlPath);
+            document.getElementById("pagetitle").innerHTML = newTitle;
+            
         }
-        updateURL("main")
+        updateURL("main");
         var section1 = null;
 
     </script>
 
     <div class="maininfoframe">
         <h1 class="mainheader">
-            KALIB CONNELL
+            KALIB STORY
         </h1>
+        <h2 class="secondaryheader">
+            Young Programmer in Java
+        </h2>
+        <a href="https://www.github.com/kalibstory">
+            <img class="profilepicture" src="https://avatars.githubusercontent.com/u/132502517?v=4">
+        </a>
+
+        <span class="placeholder_hidden">
+            <div class="seperator1"></div>
+            <div class="seperator2"></div>
+        </span>
+
+    </div>
+    <div class="topbar">
 
     </div>
 </body>
-
-<title>
-    Kalib Connell: Home
-</title>
 
 </html>
