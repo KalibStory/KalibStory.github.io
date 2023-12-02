@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+
+<head>
+    <style>
+        
+
+        @font-face {
+            font-family: Kiona;
+            src: url(Fonts/Kiona.ttf);
+        }
+
+        @font-face {
+            font-family: Aquire;
+            src: url(Fonts/Aquire.otf);
+        }
+
+        @keyframes openinganim {
+            from {left: -100%;}
+            to {left: 0%;}
+        }
+
+        .mainheader {
+            position: relative;
+            color: white;
+            left:5%;
+            bottom: 0;
+
+            letter-spacing: .5px;
+            width: 0%;
+            height: 0%;
+            font-size: 60;
+            font-family: Aquire;
+        }
+
+        .maininfoframe {
+            animation-duration: 2s;
+            animation-delay: 0s;
+            animation-name: openinganim;
+            position: absolute;
+            background-color: rgb(42,0,48);
+            width: 100%;
+            height: 60%;
+            left: 0%;
+            top:10%;
+        }
+        body {
+            background-color: rgb(28,0,33);
+        }
+    </style>
+</head>
+<body>
+    <script>
+
+        if (!sessionStorage.getItem("playedOpeningAnimation")) {
+            document.getElementsByClassName("maininfoframe").style.display = "block";
+            sessionStorage.setItem("playedOpeningAnimation",true);
+        }
+    </script>
+
+    <div class="maininfoframe">
+        <h1 class="mainheader">
+            KALIB CONNELL
+        </h1>
+
+        <button onclick="window.location.href='http://127.0.0.1:5500/About%20Me.html' ">To Site</button>
+    </div>
+</body>
+
+<title>
+    Kalib Connell: Home
+</title>
+
+</html>
