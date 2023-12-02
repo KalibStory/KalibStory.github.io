@@ -189,9 +189,8 @@
 <body>
     <script>
         function updateURL(name) {
-            var newUrlPath = name;
             var newTitle = "Kalib Story: " + name.toUpperCase();
-            history.pushState(null, "", newUrlPath);
+            history.pushState(null, "", name);
             document.getElementById("pagetitle").innerHTML = newTitle;
             
         }
