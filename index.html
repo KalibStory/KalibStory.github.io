@@ -1,224 +1,85 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-<title id="pagetitle"></title>
+    <title id="pagetitle"></title>
 
-<head>
-    <style>
-        
+    <head>
 
-        @font-face {
-            font-family: Kiona;
-            src: url(Fonts/Kiona.ttf);
-        }
+        <style>
 
-        @font-face {
-            font-family: Aquire;
-            src: url(Fonts/Aquire.otf);
-        }
+            .mif {
+                position:fixed;
+                height:98%;
+                width:10%;
+                background-color:rgb(250, 235, 215);
+                visibility:visible;
+                border-radius: 12px;
+                
+            }
 
-        @keyframes seperatelower {
-            from {height: 50%; top: 50%;}
-            to {height: 0%; top: 100%;}
-        }
-        @keyframes seperateupper {
-            from {height: 50%; top: 0%;}
-            to {height: 0%; top: 0%;}
-        }
+            .pagetitle {
+                position: relative;
+                height: 10%;
+                width:70%;
+                left: 15%;
+                top:3%;
+                background-color: rgb(260, 255, 234);
+                border-radius: 32px;
+                border: 2px solid black;
+            }
 
-        @keyframes fadeInLeft {
-            0% {
-                opacity: 0;
-                transform: translateX(-60px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
 
-        @keyframes fadeInRight1 {
-            0% {
-                opacity: 0;
-                transform: translateX(600px);
+            #titletext {
+                position:relative;
+                height:100%;
+                width:100%;
+                left:0%;
+                top: 0%;
+                text-align: center;
+                text-decoration: underline;
+                color:gold;
             }
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
 
-        @keyframes fadeInRight2 {
-            0% {
-                opacity: 0;
-                transform: translateX(450px);
+            body {
+                background-color: rgb(240, 220, 195);
             }
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
 
-        @keyframes remove {
-            0% {
-                visibility: visible;
+            .pages {
+                position:fixed;
+                height:98%;
+                width:89%;
+                left: 11%;
+                background-color: rgb(255, 250, 229);
+                border-top-left-radius: 8px;
+                border-bottom-left-radius: 8px;
             }
-            99% {
-                visibility: visible;
-            }
-            100% {
-                visibility: hidden;
-            }
-        }
 
-        .mainheader {
-            position: absolute;
-            color: white;
-            left:37%;
-            bottom: 60%;
+        </style>
+
+
+    </head>
+
+    <body>
+        <div class="mif">
+            <h1>hello</h1>
+        </div>
+
+        <div class = "pages">
+            <div class="pagetitle"><h1 id="titletext"></h1></div>
+            <div class="abt">
+                <h1>testing</h1>
+            </div>
+
             
+        </div>
 
-            letter-spacing: .5px;
-            width: 75%;
-            height: 0%;
-            opacity: 0;
-            font-size: 500%;
-            font-family: Aquire;
-            animation-delay: .9s;
-            animation-fill-mode: forwards;
-            animation-duration: 1s;
-            animation-name: fadeInRight1;
-        }
-        .secondaryheader {
-            position: absolute;
-            color: white;
-            left:37%;
-            bottom: 50%;
+        <script>
+            var page_aboutme = "ABOUT ME"
+
+            document.getElementById("titletext").innerText = page_aboutme
+
             
-
-            letter-spacing: .5px;
-            width: 75%;
-            height: 0%;
-            opacity: 0;
-            font-size: 175%;
-            font-family: Aquire;
-            animation-delay: 1.2s;
-            animation-fill-mode: forwards;
-            animation-duration: .8s;
-            animation-name: fadeInRight2;
-        }
-
-        .maininfoframe {
-            position: absolute;
-            background-color: rgb(42,0,48);
-            width: 100%;
-            height: 60%;
-            left: 0%;
-            top:10%;
-
-            /*animation: openinganim 2s ease-in-out infinite;*/
-        }
-        body {
-            background-color: rgb(28,0,33);
-            z-index: 0;
-        }
-
-        .profilepicture {
-            position: absolute;
-            border-radius: 50%;
-            width: 20%;
-            height: 70%;
-            left: 10%;
-            top: 15%;
-            animation-duration: .8s;
-            animation-delay: .6s;
-            opacity: 0;
-            animation-fill-mode: forwards;
-            animation-name: fadeInLeft;
-        }
-
-        .topbar {
-            position:absolute;
-            width: 100%;
-            height: 10%;
-            top: 0;
-            left: 0;
-            background-color: transparent;
-        }
-        .placeholder_hidden {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: transparent;
-            top:0;
-            left:0;
-            right:0;
-            bottom:0;
-            visibility: visible;
-            animation-duration: 0s;
-            animation-delay: 0.7s;
-            animation-fill-mode: forwards;
-            animation-name: remove;
-        }
-        .seperator1 {
-            position: absolute;
-            width: 100%;
-            height: 50%;
-            top: 0%;
-            background-color: rgb(28,0,33);
-            animation-duration: 0.4s;
-            animation-timing-function: ease-in-out;
-            animation-delay: 0.3s;
-            animation-fill-mode: forwards;
-            animation-name: seperateupper;
-        }.seperator2 {
-            position: absolute;
-            width: 100%;
-            height: 50%;
-            top: 50%;
-            background-color: rgb(28,0,33);
-            animation-duration: 0.4s;
-            animation-timing-function: ease-in-out;
-            animation-delay: 0.3s;
-            animation-fill-mode: forwards;
-            animation-name: seperatelower
-        }
-
-    </style>
-</head>
-<body>
-    <script>
-        function updateURL(name) {
-            var newTitle = "Kalib Story: " + name.toUpperCase();
-            history.pushState(null, "", name);
-            document.getElementById("pagetitle").innerHTML = newTitle;
-            
-        }
-        updateURL("main");
-        var section1 = null;
-
-    </script>
-
-    <div class="maininfoframe">
-        <h1 class="mainheader">
-            KALIB STORY
-        </h1>
-        <h2 class="secondaryheader">
-            Young Programmer in Java
-        </h2>
-        <a href="https://www.github.com/kalibstory">
-            <img class="profilepicture" src="https://avatars.githubusercontent.com/u/132502517?v=4" alt="A Picture of Me. Left-Click to view My Profile on GitHub"">
-        </a>
-
-        <span class="placeholder_hidden">
-            <div class="seperator1"></div>
-            <div class="seperator2"></div>
-        </span>
-
-    </div>
-    <div class="topbar">
-
-    </div>
-</body>
+        </script>
+    </body>
 
 </html>
